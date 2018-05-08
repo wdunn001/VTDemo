@@ -1,7 +1,6 @@
 # Vehicle Tracking Demo
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.16.0.
+Simple demo of Vehicle Camera Tracking Management
 
 ## Build & development
 
