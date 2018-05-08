@@ -1,5 +1,5 @@
 {
-  "name": "angularjs",
+  "name": "Vehicle Tracking Demo",
   "private": true,
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
