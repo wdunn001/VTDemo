@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading"><span>Vehicle Tracking Management</span><button class="btn btn-default btn-xs pull-right" ng-click="addCamera()">Add Camera</button><button class="btn btn-default btn-xs pull-right" ng-click="addVehicle()">Add Vehicle</button></div>
+    <div class="panel-body">
+      <input ng-change="search()" ng-model="query" type="text" class="form-control" placeholder="search" aria-describedby="search">
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Vehicle</th>
+          <th>Camera</th>
+          <th>Created Date</th>
+          <th><button class="btn btn-success btn-xs" ng-click="addOn = !addOn " ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="assignment in result">
+          <th scope="row">{{assignment.id}}</th>
+          <td>{{manageState.vehicles[assignment.vehicleId - 1].name}}</td>
+          <td>{{manageState.cameras[assignment.deviceId - 1].deviceNo}}</td>
+          <td><span am-time-ago="assignment.dateCreated | amParse:'YYYY.MM.DD HH:mm:ss'"></span></td>
+          <td><span ng-click="manageState.removeAssignment(assignment.id)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+        </tr>
+        <tr ng-show="addOn">
+            <th scope="row">#</th>
+            <td><select ng-model="vehicleSelect">
+                <option value="0">select...</option>
+            <option ng-repeat="vehicle in manageState.vehicles" value="{{vehicle.id}}">{{vehicle.name}}</option>
+            </select>
+            </td>
+            <td><select ng-change="checkAssigned()" ng-model="cameraSelect">
+                <option value="0">select...</option>
+                <option ng-repeat="camera in manageState.cameras" value="{{camera.id}}">{{camera.deviceNo}}</option>
+                </select></td>
+            <td>~</td>
+            <td><button class="btn btn-success btn-xs" ng-click="addAssignment()">Add</button></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

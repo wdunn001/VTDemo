@@ -1,0 +1,11 @@
+<section class="modal-header terms-modal-header">
+{{modalService.header}}
+</section>
+<section class="modal-body">
+{{modalService.message}}
+</section>
+<section class="modal-footer">
+
+<button class="btn btn-default" ng-if="modalService.confirm.length > 0" ng-click="removeAssignment();close();">{{modalService.confirm}}</button>
+<button class="btn btn-default" ng-if="modalService.decline.length > 0" ng-click="modalService.onDecline;close();">{{modalService.decline}}</button>
+</section>
