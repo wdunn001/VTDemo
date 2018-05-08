@@ -41,7 +41,7 @@
     }
     function addAssignment(vehicleId, deviceId , mockDate) {
       var newDate = mockDate ? randomDate(new Date(2012, 0, 1), new Date()) : new Date();
-      service.assignments.push({id: service.assignments.length + 1, vehicleId: vehicleId, deviceId: deviceId, dateCreated: newDate, deleted: false});
+      service.assignments.push({id: findHighestIdInAssignments() + 1, vehicleId: vehicleId, deviceId: deviceId, dateCreated: newDate, deleted: false});
     }
     function removeCamera(id) {
       service.cameras.splice(id - 1, 1);
@@ -49,11 +49,16 @@
     }
 
     function removeVehicle(id) {
-      service.vehicles.splice(id - 1, 1);
-
+      var vehicle = service.vehicles.findIndex(function(vehicle) {
+        return vehicle.id === id;
+      });
+      service.vehicles.splice(vehicle, 1);
     }
     function removeAssignment(id) {
-      service.assignments.splice(id - 1, 1);
+      var assignment = service.assignments.findIndex(function(assignment) {
+        return assignment.id === id;
+      });
+      service.assignments.splice(assignment, 1);
 
     }
 
@@ -69,6 +74,19 @@
         }
       }
       return foundAssignment;
+    }
+
+    function findHighestIdInAssignments(){
+      var highvalue = 0;
+      var length = service.assignments.length -1;
+      var idx = 0;
+      for (idx; idx <= length; idx++) {
+        var assignment = service.assignments[idx];
+        if (assignment.id > highvalue) {
+          highvalue = assignment.id;
+        }
+      }
+      return highvalue;
     }
 
     function generateMock() {
