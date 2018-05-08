@@ -1,6 +1,6 @@
 {
-  "requireCamelCaseOrUpperCaseIdentifiers": true,
-  "requireCapitalizedConstructors": true,
-  "requireParenthesesAroundIIFE": true,
-  "validateQuoteMarks": "'"
+  "requireCamelCaseOrUpperCaseIdentifiers": false,
+  "requireCapitalizedConstructors": false,
+  "requireParenthesesAroundIIFE": false,
+  "validateQuoteMarks": false
 }
