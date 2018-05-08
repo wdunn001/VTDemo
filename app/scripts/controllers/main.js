@@ -44,7 +44,7 @@ angular.module('angularjsApp')
     }
     activate();
     function checkAssigned() {
-      let currentAssignment = manageState.findCameraAssignmentById($scope.cameraSelect);
+      var currentAssignment = manageState.findCameraAssignmentById($scope.cameraSelect);
       if ( currentAssignment !== undefined) {
         manageState.workingObject = currentAssignment;
         modalService.createModal(
@@ -54,7 +54,7 @@ angular.module('angularjsApp')
 
     function addAssignment() {
       if ($scope.vehicleSelect !== "0" && $scope.cameraSelect !== "0") {
-       let success = manageState.checkAndAddAssignment($scope.vehicleSelect, $scope.cameraSelect);
+       var success = manageState.checkAndAddAssignment($scope.vehicleSelect, $scope.cameraSelect);
        if (success) {
          $scope.addOn = !$scope.addOn;
          $scope.vehicleSelect = "0";

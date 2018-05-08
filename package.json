@@ -1,5 +1,5 @@
 {
-  "name": "vtdemo",
+  "name": "angularjsApp",
   "private": true,
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",

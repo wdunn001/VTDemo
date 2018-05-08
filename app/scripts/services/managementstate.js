@@ -9,7 +9,7 @@
       } else {return service.assignments;}
     }
     function addCamera(deviceNo, dontPop) {
-      let newId = service.cameras.length + 1;
+      var newId = service.cameras.length + 1;
       service.cameras.push({id: newId, deviceNo: deviceNo});
       if (dontPop !== true) {
         toaster.pop('success', '', deviceNo + ' added');
@@ -18,7 +18,7 @@
     }
 
     function addVehicle(name, dontPop) {
-      let newId = service.vehicles.length + 1;
+      var newId = service.vehicles.length + 1;
       service.vehicles.push({id: newId, name: name});
       if (dontPop !== true) {
         toaster.pop('success', '', name + ' added');
@@ -27,7 +27,7 @@
     }
 
     function checkAndAddAssignment( vehicleId, deviceId ) {
-      let cameraAssignment = findCameraAssignmentById(deviceId);
+      var cameraAssignment = findCameraAssignmentById(deviceId);
       if ( cameraAssignment === undefined) {
         addAssignment(vehicleId, deviceId);
         toaster.pop('success', '', service.cameras[deviceId - 1].deviceNo + ' has been assigned');
@@ -40,7 +40,7 @@
 
     }
     function addAssignment(vehicleId, deviceId , mockDate) {
-      let newDate = mockDate ? randomDate(new Date(2012, 0, 1), new Date()) : new Date();
+      var newDate = mockDate ? randomDate(new Date(2012, 0, 1), new Date()) : new Date();
       service.assignments.push({id: service.assignments.length + 1, vehicleId: vehicleId, deviceId: deviceId, dateCreated: newDate, deleted: false});
     }
     function removeCamera(id) {
@@ -76,8 +76,8 @@
       var length = 10;
       var idx = 0;
       for (idx; idx <= length; idx++) {
-         let vehicleId = addVehicle(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15), true);
-         let cameraId = addCamera(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15), true);
+         var vehicleId = addVehicle(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15), true);
+         var cameraId = addCamera(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15), true);
          addAssignment(vehicleId, cameraId, true);
       }
     }
